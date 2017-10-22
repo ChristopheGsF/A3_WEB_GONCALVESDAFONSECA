@@ -1,0 +1,25 @@
+@extends('layouts.app')
+@section('content')
+    @include('messages.success')
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3">
+                <h2>Dashboard</h2>
+                <div class="list-group select-menu rotate">
+                    <a href="{{route("admin.index", ["id" => 0])}}" class="list-group-item ">Users</a>
+                    <a href="{{route("admin.index", ["id" => 1])}}" class="list-group-item ">Recruiters</a>
+                    <a href="{{route("admin.index", ["id" => 2])}}" class="list-group-item ">Contact</a>
+                </div>
+            </div>
+
+
+            <div class="col-md-9">
+
+                @yield('table')
+
+            </div>
+        </div>
+    </div>
+@endsection

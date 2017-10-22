@@ -13,13 +13,28 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #black;
+                color: #ffffff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
+            video#bgvid {
+
+                position: fixed; right: 0; bottom: 0;
+                min-width: 100%; min-height: 100%;
+                width: auto; height: auto;
+                background: no-repeat;
+                background-size: cover;
+            }
+            #filtre{
+                position:absolute;
+                width:100%;
+                height:100%;
+                background-color:black;
+                opacity:0.7; z-index:1;
+                filter:alpha(opacity=70); }
 
             .full-height {
                 height: 100vh;
@@ -50,7 +65,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ffffff;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -64,7 +79,11 @@
             }
         </style>
     </head>
-    <body>
+    <body id="filtre">
+    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+        <source src="{{asset("uploads/video.mp4")}}" type="video/mp4">
+    </video>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,15 +98,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    CINVER
                 </div>
             </div>
         </div>

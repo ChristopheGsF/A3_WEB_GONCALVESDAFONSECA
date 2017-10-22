@@ -45,12 +45,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'isRecruiter' => 'required|numeric|regex:/[01]/',
         ]);
     }
 
@@ -65,7 +67,9 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'avatar' => "uploads/uploadedFile/Avatar/default.png",
             'password' => bcrypt($data['password']),
+            'isRecruiter' => $data['isRecruiter'],
         ]);
     }
 }
